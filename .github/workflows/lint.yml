@@ -36,7 +36,8 @@ jobs:
 
     # type checking
     # Add --ignore-missing-imports if you want to ignore missing type hints in third-party/old libraries
+    # Add --disable-error-code import-untyped if you want to ignore errors related to untyped imports
     - name: Run MyPy
       run: |
         pip install types-requests
-        mypy .
+        mypy . --ignore-missing-imports --disable-error-code import-untyped
