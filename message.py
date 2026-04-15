@@ -102,7 +102,7 @@ class HandShake(Message):
     def from_bytes(cls, payload):
         (pstrlen,) = unpack(">B", payload[:1])
         pstr, reserved, info_hash, peer_id = unpack(
-            "{}s8s20s20s".format(pstrlen), payload[1 : cls.total_length]
+            "{}s8s20s20s".format(pstrlen), payload[1: cls.total_length]
         )
 
         if pstrlen != LEN_HANDSHAKE_PSTR:
@@ -291,7 +291,7 @@ class BitField(Message):
             raise WrongMessageType("Not a BitField message")
 
         (raw_bitfield,) = unpack(
-            ">{}s".format(bitfield_length), payload[5 : 5 + bitfield_length]
+            ">{}s".format(bitfield_length), payload[5: 5 + bitfield_length]
         )
         bitfield_bytes = BitArray(bytes=bytes(raw_bitfield))
 

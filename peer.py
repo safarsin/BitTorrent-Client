@@ -199,7 +199,7 @@ class Peer:
         try:
             msg = message.HandShake.from_bytes(self.buffer)
             self.handshake_provided = True
-            self.buffer = self.buffer[msg.total_length :]
+            self.buffer = self.buffer[msg.total_length:]
             return True
         except Exception:
             self.healthy = False
@@ -264,7 +264,7 @@ class Peer:
         # if port:
         # self.port = port
         logging.log(
-            logging.INFO, "Port information was updated for peer: {self.ip_address}"
+            logging.INFO, f"Port information was updated for peer: {self.ip_address}"
         )
 
     def _handle_keep_alive(self):
@@ -276,5 +276,5 @@ class Peer:
         except Exception:
             return False
 
-        self.read_buffer = self.read_buffer[keep_alive.total_length :]
+        self.read_buffer = self.read_buffer[keep_alive.total_length:]
         return True
