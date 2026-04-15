@@ -11,7 +11,6 @@ class Piece:
         self.piece_size: int = piece_size
         self.piece_hash: str = piece_hash
         self.raw_representation: bytes = b""
-        self.piece_hash: str
         self.is_full: bool = False
         self.blocks_number: int = ceil(piece_size / BLOCK_SIZE)
         self.blocks: list[Block]

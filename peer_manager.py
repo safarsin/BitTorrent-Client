@@ -125,7 +125,7 @@ class PeerManager(Thread):
         if peer in self.connected_peers:
             try:
                 peer.socket.close()
-            except ConnectionRefusedError or ConnectionError:
+            except (ConnectionRefusedError, ConnectionError):
                 logging.log(
                     logging.ERROR,
                     "Unable to establish connection with peer: {peer.ip_address} : {peer.port}",
