@@ -43,7 +43,7 @@ class BlockSaver(Thread):
                             file.fileno(), length=file_size, access=mmap.ACCESS_WRITE
                         ) as mmap_file:
                             mmap_file[
-                                piece_offset + block_start: piece_offset + block_offset
+                                piece_offset + block_start : piece_offset + block_offset
                             ] = block.data
                             mmap_file.flush()
                             self.saved_blocks += 1
