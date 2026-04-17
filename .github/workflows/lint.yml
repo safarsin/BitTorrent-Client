@@ -1,4 +1,4 @@
-name: Roman Linting
+name: Code formatting
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.12' # Or change to your Python version
+        python-version: '3.12'
     
     - name: Install dependencies
       run: |
@@ -34,9 +34,6 @@ jobs:
       run: |
         flake8 . --extend-ignore=E501,E203
 
-    # type checking
-    # Add --ignore-missing-imports if you want to ignore missing type hints in third-party/old libraries
-    # Add --disable-error-code import-untyped if you want to ignore errors related to untyped imports
     - name: Run MyPy
       run: |
         pip install types-requests
